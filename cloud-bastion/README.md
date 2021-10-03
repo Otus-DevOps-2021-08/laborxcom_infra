@@ -15,6 +15,7 @@
 ```
 #### HW of [Lab_005](#Lab_005)
 1. Create YC infra and set up SSH access via Bastion host.
+
 Two Compute Clouds was created:
 
 >**bastion** host with public ip - 178.154.223.102
