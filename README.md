@@ -61,6 +61,6 @@ Then start the VPN tunnel session
 openvpn3 session-start --config cloud-bastion.ovpn
 ```
 3. Set SSL certificate.
-To enable the Let's Encrypt bot just set the domain name [178.154.206.140.sslip.io/](178.154.206.140.sslip.io/) to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
+To enable the Let's Encrypt bot just set the domain name **178.154.206.140.sslip.io** to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
 
 4. [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
