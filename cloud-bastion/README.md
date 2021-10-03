@@ -10,7 +10,7 @@
 
 ### Lab_005 settings
 ```
-    bastion_IP = 178.154.223.102
+    bastion_IP = 178.154.206.140
     someinternalhost_IP = 10.128.0.34
 ```
 #### HW of [Lab_005](#Lab_005)
@@ -27,7 +27,7 @@ Locally generated ssh key-pair was inserted to this hosts (public key)
 
 ```
 Host bastion
-    HostName 178.154.223.102
+    HostName 178.154.206.140
     User appuser
     IdentityFile ~/.ssh/appuser
     ForwardAgent yes
@@ -44,7 +44,7 @@ ssh inthost
 ```
 You can also reach it with the command:
 ```
-ssh -i ~/.ssh/appuser -A -J appuser@178.154.223.102 appuser@10.128.0.34
+ssh -i ~/.ssh/appuser -A -J appuser@178.154.206.140 appuser@10.128.0.34
 ```
 
 2. Set up the VPN service Pritunl
@@ -61,6 +61,6 @@ Then start the VPN tunnel session
 openvpn3 session-start --config cloud-bastion.ovpn
 ```
 3. Set SSL certificate.
-To enable the Let's Encrypt bot just set the domain name [178.154.223.102.sslip.io/](178.154.223.102.sslip.io/) to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
+To enable the Let's Encrypt bot just set the domain name [178.154.206.140.sslip.io/](178.154.206.140.sslip.io/) to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
 
 4. [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
