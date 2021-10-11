@@ -64,3 +64,22 @@ openvpn3 session-start --config cloud-bastion.ovpn
 To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.io** to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
 
 4. [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
+
+## Lab_006 Test App deploy<a name="Lab_006"></a>
+
+### Task:
+1. Setup YC console.
+2. Create a host by YC CLI.
+3. Install **Ruby** and **MongoDB**.
+4. Deploy an App and check the functionality.
+5. Create the Bash-scripts to that steps automatically.
+6. Create a metadata.yaml 
+7. Create an infra and deploy the app with one command at YC CLI.
+
+Steps 1-4 has done.
+
+5. Scrips:
+* [install_ruby.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_ruby.sh)
+* [install_mongodb.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_mongodb.sh)
+* [deploy.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/deploy.sh)
+
