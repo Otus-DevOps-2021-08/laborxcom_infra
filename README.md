@@ -74,7 +74,7 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 3. Install **Ruby** and **MongoDB**.
 4. Deploy an App and check the functionality.
 5. Create the Bash-scripts to that steps automatically.
-6. Create a metadata.yaml 
+6. Create a metadata.yaml
 7. Create an infra and deploy the app with one command at YC CLI.
 
 Steps 1-4 has done.
@@ -91,10 +91,8 @@ Steps 1-4 has done.
 
 6. [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
 
-7. Check the app with [link](https://178.154.232.33:9292)
+7. Check the app with [link](https://178.154.209.113:9292)
 ```
-testapp_IP = 178.154.232.33
+testapp_IP = 178.154.209.113
 testapp_port = 9292
 ```
-
-
