@@ -18,8 +18,8 @@
 
 Two Compute Clouds was created:
 
->**bastion** host with public ip - 84.252.129.223
->**comeinternalhost** with only lockal address
+**bastion** host with public ip - 84.252.129.223
+**comeinternalhost** with only lockal address
 
 Locally generated ssh key-pair was inserted to this hosts (public key)
 
@@ -79,10 +79,15 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 Steps 1-4 has done.
 
+
 #### The scripts:
+
+5. Scrips:
+
 * [install_ruby.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_ruby.sh)
 * [install_mongodb.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_mongodb.sh)
 * [deploy.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/deploy.sh)
+
 
 6. [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
 
@@ -91,3 +96,5 @@ Steps 1-4 has done.
 testapp_IP = 178.154.212.8
 testapp_port = 9292
 ```
+
+
