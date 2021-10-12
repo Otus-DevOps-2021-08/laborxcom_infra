@@ -86,8 +86,8 @@ Steps 1-4 has done.
 
 6. [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
 
-7. Check the app with [link](https://)
+7. Check the app with [link](https://178.154.212.8:9292)
 ```
-testapp_IP = 
-testapp_port = 
+testapp_IP = 178.154.212.8
+testapp_port = 9292
 ```
