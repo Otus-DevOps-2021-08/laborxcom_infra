@@ -2,13 +2,14 @@
     "builders": [
         {
             "type": "yandex",
-            "service_account_key_file": "~/Documents/Edu/OTUS/DevOps/.keys/packersvc.json",
+            "service_account_key_file": "../../../.keys/packersvc.json",
             "folder_id": "b1gfi1j5it8om5e2o2ul",
             "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-base-{{timestamp}}",
             "image_family": "reddit-base",
             "ssh_username": "ubuntu",
-            "platform_id": "standard-v1"
+            "platform_id": "standard-v1",
+	    "use_ipv4_nat": "true"
         }
     ],
     "provisioners": [
