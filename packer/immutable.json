@@ -6,7 +6,7 @@
 		"folder_id": "{{ user `folder`}}",
 		"source_image_id": "{{ user `source`}}",
 		"image_name": "reddit-base-{{timestamp}}",
-		"image_family": "reddit-base",
+		"image_family": "reddit-full",
 		"ssh_username": "{{ user `ssh_user`}}",
 		"platform_id": "standard-v1",
 		"use_ipv4_nat": "true",
@@ -23,6 +23,12 @@
         {
 		"type": "shell",
 		"script": "scripts/install_mongodb.sh",
+		"execute_command": "sudo {{.Path}}",
+		"pause_before": "60s"
+        },
+        {
+		"type": "shell",
+		"script": "scripts/deploy.sh",
 		"execute_command": "sudo {{.Path}}",
 		"pause_before": "60s"
         }
