@@ -1,0 +1,11 @@
+[Unit]
+Description=puma
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/home/ubuntu/puma_start.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
