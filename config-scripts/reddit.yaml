@@ -1,8 +1,0 @@
-#cloud-config
-users:
-  - name: appuser
-    groups: sudo
-    shell: /usr/bin/env bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCupUgB3tg/ZM6nNCsHp01o6HHu8aYFsumiPLqTGLuRo0M4O5j81qEsMGGcJu6nUhrSF/+bmNRE9kJmrFdWnJA1cywJ2C0KWWNKHwP55xukJHKp+9AlHkZgxS+QEy5BI0pc7yztQFUp6oBZvJo9O1v7fKHBAqzUVHdnZV6splFbqqqqfDf9o5Peakf7XGj2uIj2bf5OSTSZOt93f62pI9DyZrj/7Sz1JE02AnJT6OfspkxE2l8YgyfScgqGwrzeCmG9xFBjEPM18G2w+VoIUzKl9ZFh0R2o3bsEIkiPm4St7Ww1cYoVOunuJphKElS9Mbk5u5lgvnmFAkdGeqZio9deL8UDgmi0iD54i6uDf6opmLq/q3L6xYXnG+sWjDqSBNdXfmHcB+f8hec6v+SUrQ6CRO7evkRhDnC7l0zgR7BWY8cnf8tStWEhDoiVeDiy30YNI/ykSMhustC0slrcpY9myr+Vu2nTsxaFXOTil2/ZaBXV1Eq/OrPqbNRTA1bSp70= appuser
