@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 yc compute instance create \
 --name reddit-app \
 --hostname reddit-app \
@@ -7,4 +8,3 @@ yc compute instance create \
 --metadata serial-port-enable=1 \
 --zone=ru-central1-c \
 --metadata-from-file user-data=metadata.yaml
-
