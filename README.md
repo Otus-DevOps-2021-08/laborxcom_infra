@@ -133,4 +133,6 @@ testapp_port = 9292
 
 To start a VM with the Puma app deployed run the [create-reddit-vm.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/packer-base/config-scripts/create-reddit-vm.sh) script with parameter file [create-reddit-vm.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/packer-base/config-scripts/create-reddit-vm.yaml) (should be placed to the same folder as the script is).
 
-The script will create a VM based on previously created reddit-full image with all necessory components installed in.
+The script will create a VM based on previously created reddit-full image with all necessary components installed in it.
+
+To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
