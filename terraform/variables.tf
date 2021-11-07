@@ -23,3 +23,9 @@ variable "public_key_path" {
 variable "private_key_path" {
   description = "Ubuntu user private key path"
 }
+#From https://learn.hashicorp.com/tutorials/terraform/variables?in=terraform/configuration-language&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS
+variable "instance_count" {
+  description = "Number of instances to provision."
+  type        = number
+  default     = 1
+}

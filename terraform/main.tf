@@ -8,7 +8,11 @@ provider "yandex" {
   zone                     = var.zone
 }
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app"
+#  name  = "Lab_008-reddit-app"
+  name = "app-reddit"
+  count = var.instance_count
+  zone  = var.zone
+
   resources {
     cores  = 2
     memory = 2
@@ -26,7 +30,9 @@ resource "yandex_compute_instance" "app" {
   }
   connection {
     type        = "ssh"
-    host        = yandex_compute_instance.app.network_interface.0.nat_ip_address
+    #From https://learn.hashicorp.com/tutorials/terraform/variables?in=terraform/configuration-language&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS
+    host        = yandex_compute_instance.app[count.index].network_interface.0.nat_ip_address
+    #host        = self.network_interface.0.nat_ip_address
     user        = "ubuntu"
     agent       = false
     private_key = file(var.private_key_path)
