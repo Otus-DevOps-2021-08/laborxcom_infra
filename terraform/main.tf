@@ -1,3 +1,6 @@
+locals {
+  name_suffix = "${var.resource_tags["project"]}-${var.resource_tags["app"]}"
+}
 terraform {
   required_version = "~> 0.12.26"
 }
@@ -5,10 +8,15 @@ provider "yandex" {
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
-  zone                     = var.zone
+  zone                     = var.zone.0
 }
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app"
+#  name  = "Lab_008-reddit-app"
+  name = "app-${local.name_suffix}"
+  count = var.instance_count
+#  zone  = var.zone.[count.index]
+#  zone  = var.zone.0
+
   resources {
     cores  = 2
     memory = 2
@@ -26,7 +34,7 @@ resource "yandex_compute_instance" "app" {
   }
   connection {
     type        = "ssh"
-    host        = yandex_compute_instance.app.network_interface.0.nat_ip_address
+    host        = yandex_compute_instance.app[count.index].network_interface.0.nat_ip_address
     user        = "ubuntu"
     agent       = false
     private_key = file(var.private_key_path)
