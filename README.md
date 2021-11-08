@@ -81,6 +81,7 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 ## Lab_006 Test App deploy<a name="Lab_006"></a>
 
+
 ### Task
 
 1. Setup YC console.
@@ -93,7 +94,9 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 Steps 1-4 has done.
 
+
 #### The scripts
+
 
 5. Scrips:
 
@@ -105,10 +108,12 @@ Steps 1-4 has done.
 
 7. Check the app with [link](https://178.154.209.113:9292)
 
+
 ```
 testapp_IP = 178.154.209.113
 testapp_port = 9292
 ```
+
 ## Lab_007 Create a VM image with Packer <a name="Lab_007"></a>
 
 ### Task
@@ -136,3 +141,4 @@ To start a VM with the Puma app deployed run the [create-reddit-vm.sh](https://g
 The script will create a VM based on previously created reddit-full image with all necessary components installed in it.
 
 To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
+
