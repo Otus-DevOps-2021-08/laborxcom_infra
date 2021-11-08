@@ -1,0 +1,7 @@
+{
+      "secret_key": "key.json.example",
+      "folder": "xxxfi1j5it8om5e2oyyy",
+      "source": "xxxgn4uclpnj1dfjoyyy",
+      "ssh_user": "ubuntu",
+      "log_file": "~/Packer_logfile.log.example"
+}
