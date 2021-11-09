@@ -9,12 +9,7 @@ variable "folder_id" {
 }
 variable "zone" {
   description = "Zone"
-  type        = list(string)
-  default     = [
-    "ru-central1-a",
-    "ru-central1-b",
-    "ru-central1-c"
-  ]
+  default     = "ru-central1-a"
 }
 variable "image_id" {
   description = "image id that we use"
@@ -32,5 +27,5 @@ variable "private_key_path" {
 variable "instance_count" {
   description = "Number of instances to provision."
   type        = number
-  default     = 1
+  default     = 2
 }

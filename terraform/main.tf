@@ -1,6 +1,3 @@
-locals {
-  name_suffix = "${var.resource_tags["project"]}-${var.resource_tags["app"]}"
-}
 terraform {
   required_version = "~> 0.12.26"
 }
@@ -8,11 +5,12 @@ provider "yandex" {
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
-  zone                     = var.zone.0
+  zone                     = var.zone
 }
 resource "yandex_compute_instance" "app" {
-#  name  = "Lab_008-reddit-app"
-  name = "app-reddit"
+  # name  = "Lab_008-reddit-app"
+  # Ensure app name is unique!
+  name = "app-reddit-${count.index}"
   count = var.instance_count
   zone  = var.zone
 
@@ -34,8 +32,8 @@ resource "yandex_compute_instance" "app" {
   connection {
     type        = "ssh"
     #From https://learn.hashicorp.com/tutorials/terraform/variables?in=terraform/configuration-language&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS
-    host        = yandex_compute_instance.app[count.index].network_interface.0.nat_ip_address
-    #host        = self.network_interface.0.nat_ip_address
+    #host        = yandex_compute_instance.app[count.index].network_interface.0.nat_ip_address
+    host        = self.network_interface.0.nat_ip_address
     user        = "ubuntu"
     agent       = false
     private_key = file(var.private_key_path)
