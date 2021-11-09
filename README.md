@@ -1,6 +1,5 @@
 # Homework labs for the course [DevOps prctice](https://otus.ru/lessons/devops-praktiki-i-instrumenty) at [OTUS](https://otus.ru)
 
-
 ## Lab_005 Yandex.Cloud infrastructure<a name="Lab_005"></a>
 
 1. Create YC infra and set up SSH access via the Bastion host.
@@ -18,7 +17,9 @@
 
 #### HW of [Lab_005](#Lab_005)
 
-1. Create YC infra and set up SSH access via the Bastion host.
+##### Task 1
+
+Create YC infra and set up SSH access via the Bastion host.
 
 Two Compute Clouds was created:
 
@@ -51,25 +52,27 @@ ssh inthost
 
 You can also reach it with the command:
 
-```
+```bash
 ssh -i ~/.ssh/appuser -A -J appuser@84.252.129.223 appuser@10.128.0.34
 ```
 
-2. Set up the VPN service Pritunl
+##### Task 2
+
+Set up the VPN service Pritunl
 
 A Pritunl server was deployed on the **Bastion host** with the [setupvpn.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/setupvpn.sh)
 
 To connect to internal hosts via VPN use the [cloud-bastion.ovpn](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/cloud-bastion.ovpn).
 To insert the config to your openvpn client:
 
-```
+```bash
 wget https://bit.ly/3mnEQfk -O cloud-bastion.ovpn
 openvpn3 config-import --config cloud-bastion.ovpn
 ```
 
 Then start the VPN tunnel session
 
-```
+```bash
 openvpn3 session-start --config cloud-bastion.ovpn
 ```
 
@@ -81,7 +84,6 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 ## Lab_006 Test App deploy<a name="Lab_006"></a>
 
 ## Lab_006 Test App deploy<a name="Lab_006"></a>
-
 
 ### Task
 
@@ -151,4 +153,4 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 3. Configure parameters and hide secrets from git.
 4. \* Configure a Load Balancer to deploy an app with two instances and check the app availability.
 
-To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
+To check the result go to <http://VM-ip:9292> the Monolith reddit app will appear.

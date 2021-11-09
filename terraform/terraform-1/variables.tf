@@ -14,17 +14,9 @@ variable "zone" {
 variable "image_id" {
   description = "image id that we use"
 }
-variable app_disk_image {
-  description = "Disk image for reddit app"
-  default = "reddit-app-base"
+variable "subnet_id" {
+  description = "Subnet id"
 }
-variable db_disk_image {
-  description = "Disk image for reddit db"
-  default = "reddit-db-base"
-}
-#variable "subnet_id" {
-#  description = "Subnet id"
-#}
 variable "public_key_path" {
   description = "Ubuntu user public key path"
 }
@@ -35,5 +27,5 @@ variable "private_key_path" {
 variable "instance_count" {
   description = "Number of instances to provision."
   type        = number
-  default     = 1
+  default     = 2
 }

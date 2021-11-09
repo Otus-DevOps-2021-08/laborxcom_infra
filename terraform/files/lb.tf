@@ -29,7 +29,7 @@ resource "yandex_lb_target_group" "reddit_group" {
   dynamic "target" {
     for_each = yandex_compute_instance.app
     content {
-      # subnet_id - (Required) ID of the subnet that targets are connected to. 
+      # subnet_id - (Required) ID of the subnet that targets are connected to.
       # All targets in the target group must be connected to the same subnet within a single availability zone.
       subnet_id = var.subnet_id
       address = target.value["network_interface"].0.ip_address
