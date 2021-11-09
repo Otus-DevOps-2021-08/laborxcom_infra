@@ -1,3 +1,6 @@
+locals {
+  name_suffix = "${var.resource_tags["project"]}-${var.resource_tags["app"]}"
+}
 terraform {
   required_version = "~> 0.12.26"
 }
@@ -5,7 +8,7 @@ provider "yandex" {
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
-  zone                     = var.zone
+  zone                     = var.zone.0
 }
 resource "yandex_compute_instance" "app" {
 #  name  = "Lab_008-reddit-app"

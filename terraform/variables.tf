@@ -9,7 +9,12 @@ variable "folder_id" {
 }
 variable "zone" {
   description = "Zone"
-  default     = "ru-central1-a"
+  type        = list(string)
+  default     = [
+    "ru-central1-a",
+    "ru-central1-b",
+    "ru-central1-c"
+  ]
 }
 variable "image_id" {
   description = "image id that we use"
