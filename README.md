@@ -1,6 +1,5 @@
 # Homework labs for the course [DevOps prctice](https://otus.ru/lessons/devops-praktiki-i-instrumenty) at [OTUS](https://otus.ru)
 
----
 
 ## Lab_005 Yandex.Cloud infrastructure<a name="Lab_005"></a>
 
@@ -79,10 +78,10 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 4. [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
 
----
-
+## Lab_006 Test App deploy<a name="Lab_006"></a>
 
 ## Lab_006 Test App deploy<a name="Lab_006"></a>
+
 
 ### Task
 
@@ -112,8 +111,6 @@ Steps 1-4 has done.
 testapp_IP = 178.154.209.113
 testapp_port = 9292
 ```
----
-
 
 ## Lab_007 Create a VM image with Packer <a name="Lab_007"></a>
 
@@ -153,3 +150,5 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 2. Create a VM in YC with Terraform template and deploy an app.
 3. Configure parameters and hide secrets from git.
 4. \* Configure a Load Balancer to deploy an app with two instances and check the app availability.
+
+To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
