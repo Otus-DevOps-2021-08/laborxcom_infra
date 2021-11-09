@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 0.12.26"
+  required_version = "~> 0.12.8"
 }
 provider "yandex" {
   service_account_key_file = var.service_account_key_file
