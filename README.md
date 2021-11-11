@@ -1,6 +1,5 @@
 # Homework labs for the course [DevOps prctice](https://otus.ru/lessons/devops-praktiki-i-instrumenty) at [OTUS](https://otus.ru)
 
-------------------------------------------------------------
 
 ## Lab_005 Yandex.Cloud infrastructure<a name="Lab_005"></a>
 
@@ -81,6 +80,8 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 ## Lab_006 Test App deploy<a name="Lab_006"></a>
 
+## Lab_006 Test App deploy<a name="Lab_006"></a>
+
 
 ### Task
 
@@ -94,9 +95,7 @@ To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.
 
 Steps 1-4 has done.
 
-
 #### The scripts
-
 
 5. Scrips:
 
@@ -107,7 +106,6 @@ Steps 1-4 has done.
 6. [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
 
 7. Check the app with [link](https://178.154.209.113:9292)
-
 
 ```
 testapp_IP = 178.154.209.113
@@ -124,7 +122,7 @@ testapp_port = 9292
 4. Configure parameters and hide secrets from git.
 5. \* Create a bake image to deploy an app with one command.
 
-* Packer temlate [ubuntu16.json](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/packer-base/packer/ubuntu16.json)
+* Packer template [ubuntu16.json](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/packer-base/packer/ubuntu16.json)
 * Packer variables.json added to .gitignore to hide secrets.
 * Scripts to make the image and deploy apps:
 
@@ -140,5 +138,17 @@ To start a VM with the Puma app deployed run the [create-reddit-vm.sh](https://g
 
 The script will create a VM based on previously created reddit-full image with all necessary components installed in it.
 
-To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
+To check the result go to <http://VM-ip:9292> the Monolith reddit app will appear.
 
+---
+
+## Lab_008 Terraform-1 <a name="Lab_008"></a>
+
+### Task
+
+1. Create Terraform config files.
+2. Create a VM in YC with Terraform template and deploy an app.
+3. Configure parameters and hide secrets from git.
+4. \* Configure a Load Balancer to deploy an app with two instances and check the app availability.
+
+To check the result go to http://VM-ip:9292 the Monolith reddit app will appear.
