@@ -5,6 +5,9 @@ variable app_disk_image {
 variable "public_key_path" {
   description = "Ubuntu user public key path"
 }
+variable "private_key_path" {
+  description = "Ubuntu user private key path"
+}
 variable subnet_id {
 description = "Subnets for modules"
 }

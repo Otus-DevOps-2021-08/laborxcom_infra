@@ -33,16 +33,16 @@ resource "yandex_compute_instance" "app" {
   provisioner "file" {
     #source      = "files/puma.service"
     content = templatefile(
-      "$files/puma.service",
+      "../modules/app/files/puma.service",
       {
-        db_url  = var.db_ip
+        db_url  = var.db_url
       }
     )
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "../modules/app/files/deploy.sh"
   }
 
   metadata = {
