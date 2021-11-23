@@ -8,3 +8,7 @@ variable "public_key_path" {
 variable subnet_id {
 description = "Subnets for modules"
 }
+
+variable "db_url" {
+  description = "Database instance ip-address or URL"
+}

@@ -1,6 +1,6 @@
 # Homework labs for the course [DevOps prctice](https://otus.ru/lessons/devops-praktiki-i-instrumenty) at [OTUS](https://otus.ru)
 
-## Lab_005 Yandex.Cloud infrastructure<a name="Lab_005"></a>
+## Lab_005 Yandex.Cloud infrastructure
 
 1. Create YC infra and set up SSH access via the Bastion host.
 2. Set up VPN service [Pritunl](https://pritunl.com/)
@@ -76,16 +76,14 @@ Then start the VPN tunnel session
 openvpn3 session-start --config cloud-bastion.ovpn
 ```
 
-3. Set SSL certificate.
+(3) Set SSL certificate.
 To enable the Let's Encrypt bot just set the domain name **84.252.129.223.sslip.io** to the settings at *Lets Encrypt Domain* field on Pritunl web interface on **Bastion** host.
 
-4. [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
+(4) [README.md](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-bastion/README.md) updated
 
-## Lab_006 Test App deploy<a name="Lab_006"></a>
+## Lab_006 Test App deploy
 
-## Lab_006 Test App deploy<a name="Lab_006"></a>
-
-### Task
+### Task Lab_006
 
 1. Setup YC console.
 2. Create a host by YC CLI.
@@ -99,24 +97,26 @@ Steps 1-4 has done.
 
 #### The scripts
 
-5. Scrips:
+(5) Scripts:
 
-* [install_ruby.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_ruby.sh)
-* [install_mongodb.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_mongodb.sh)
-* [deploy.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/deploy.sh)
+[install_ruby.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_ruby.sh)
 
-6. [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
+[install_mongodb.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/install_mongodb.sh)
 
-7. Check the app with [link](https://178.154.209.113:9292)
+[deploy.sh](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/deploy.sh)
 
-```
+(6) [Metadata.yaml](https://github.com/Otus-DevOps-2021-08/laborxcom_infra/blob/cloud-testapp/metadata.yaml) describes the environment the App will be run in.
+
+(7) Check the app with [link](https://178.154.209.113:9292)
+
+```text
 testapp_IP = 178.154.209.113
 testapp_port = 9292
 ```
 
-## Lab_007 Create a VM image with Packer <a name="Lab_007"></a>
+## Lab_007 Create a VM image with Packer
 
-### Task
+### Task Lab_007
 
 1. Configure Packer account in YC CLI.
 2. Create a Packer template.
@@ -144,9 +144,9 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 
 ---
 
-## Lab_008 Terraform-1 <a name="Lab_008"></a>
+## Lab_008 Terraform-1
 
-### Task
+### Task Lab_008
 
 1. Create Terraform config files.
 2. Create a VM in YC with Terraform template and deploy an app.
@@ -154,3 +154,18 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 4. \* Configure a Load Balancer to deploy an app with two instances and check the app availability.
 
 To check the result go to <http://VM-ip:9292> the Monolith reddit app will appear.
+
+## Lab_009 Terraform-2 (Modules and remote .state)
+
+1. Divide App and DB to separate VMs with packer.
+2. Create modules for **App**, **DB**  and **VPC** in dir _modules_.
+3. Modify outputs to use **app** and **db** module instances.
+4. Run _terraform get_ to apply modules. Check with _tree .terraform_.
+5. Create **Stage** and **Prod** infras to use the same modules (DRY forever).
+6. Correct path to modules. Format configs with _terraform fmt_.
+7. Get to know [Terraform registry](https://registry.terraform.io/).
+8. \* Configure **remote backend** to store state file. Check remote sharing of sate.
+9. \** Add provisioner to module **app**.
+10. \** Configure parameters to switch provisioner using.
+
+---
