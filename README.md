@@ -155,6 +155,8 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 
 To check the result go to <http://VM-ip:9292> the Monolith reddit app will appear.
 
+---
+
 ## Lab_009 Terraform-2 (Modules and remote .state)
 
 1. Divide App and DB to separate VMs with packer.
