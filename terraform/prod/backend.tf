@@ -12,6 +12,7 @@ terraform {
 
     #"<идентификатор статического ключа>"
     # Note the access_key and secret_key should be generated!
+    access_key = "o2_aP80ZrvKy_ESlXvl6"
 
     skip_region_validation      = true
     skip_credentials_validation = true

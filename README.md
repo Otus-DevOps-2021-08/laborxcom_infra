@@ -165,7 +165,9 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 6. Correct path to modules. Format configs with _terraform fmt_.
 7. Get to know [Terraform registry](https://registry.terraform.io/).
 8. \* Configure **remote backend** to store state file. Check remote sharing of sate.
-9. \** Add provisioner to module **app**.
-10. \** Configure parameters to switch provisioner using.
+9. \** Add provisioner to module **app** (templatefile to provide db-ip).
+10. \** Configure parameters to switch provisioner using (_resource "null_recource" "deploy"_).
+
+* Test with URL _http://VM-app-ip:9292_
 
 ---
