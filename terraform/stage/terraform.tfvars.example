@@ -1,0 +1,8 @@
+service_account_key_file = "~/.ssh/packersvc.json"
+cloud_id                 = "b1gugctpq2ae8ik4tm9q"
+folder_id                = "b1gfi1j5it8om5e2o2ul"
+zone                     = "ru-central1-a"
+subnet_id        = "e9bpts9ir7mfa1d9moco"
+image_id         = "fd8mnveim112u27ieme1"
+public_key_path  = "~/.ssh/appuser.pub"
+private_key_path = "~/.ssh/appuser"
