@@ -173,3 +173,11 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 * Test with URL _http://VM-app-ip:9292_
 
 ---
+## Lab_010 Ansible-1
+
+1. Create configuration to run simple playbook.
+2. Analize running playbook:
+    _Playbook outputs changes made while running (in Yelloy:)._
+3. *Try to make dinamical inventory.
+
+---
