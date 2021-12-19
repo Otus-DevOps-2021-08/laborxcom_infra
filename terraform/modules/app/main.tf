@@ -28,7 +28,7 @@ resource "yandex_compute_instance" "app" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file(var.public_key_path)}}"
+    ssh-keys = "appuser:${file(var.public_key_path)}}"
   }
 }
 
@@ -42,7 +42,7 @@ resource "null_resource" "deploy" {
     #host        = yandex_compute_instance.app[count.index].network_interface.0.nat_ip_address
     #host        = self.network_interface.0.nat_ip_address
     host        = local.provisioning_ip_list[count.index]
-    user        = "ubuntu"
+    user        = "appuser"
     agent       = false
     private_key = file(var.private_key_path)
   }
