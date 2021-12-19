@@ -170,9 +170,10 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 9. \** Add provisioner to module **app** (templatefile to provide db-ip).
 10. \** Configure parameters to switch provisioner using (_resource "null_recource" "deploy"_).
 
-* Test with URL _http://VM-app-ip:9292_
+* Test with URL _<http://VM-app-ip:9292>_
 
 ---
+
 ## Lab_010 Ansible-1
 
 1. Create configuration to run simple playbook.

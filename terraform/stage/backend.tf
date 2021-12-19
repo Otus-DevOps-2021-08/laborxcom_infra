@@ -14,6 +14,8 @@ terraform {
     # Note the access_key and secret_key should be generated!
     access_key = "o2_aP80ZrvKy_ESlXvl6"
 
+    #secret_key = "${var.secret_key}"
+
     skip_region_validation      = true
     skip_credentials_validation = true
   }
