@@ -229,3 +229,11 @@ ansible-playbook site.yml --limit app
 Check with URL _<http://VM-app-ip:9292>_
 
 ---
+## Lab_010 Ansible-1
+
+1. Create configuration to run simple playbook.
+2. Analize running playbook:
+    _Playbook outputs changes made while running (in Yelloy:)._
+3. *Try to make dinamical inventory.
+
+---
