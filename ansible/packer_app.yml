@@ -1,1 +1,23 @@
-# just for auto-tests
+---
+- name: Install Ruby && Bundler
+  hosts: all
+  #hosts: default
+  #gather_facts: false
+  become: true
+  tasks:
+  - name: Install ruby
+    apt: "name={{ item }} state=present"
+    with_items:
+      - ruby-full
+      - ruby-bundler
+      - build-essential
+      - git
+
+    #package:
+    #  name:
+    #    - git
+    #  state: latest
+    #  update_cache: true
+
+# packer build -var-file packer/variables.json packer/app.json
+#--> yandex: A disk image was created: reddit-app-base-1641823388 (id: fd8m1u85785it7lm4dp9) with family name reddit-app-base
