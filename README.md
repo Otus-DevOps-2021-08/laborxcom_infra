@@ -170,7 +170,63 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 9. \** Add provisioner to module **app** (templatefile to provide db-ip).
 10. \** Configure parameters to switch provisioner using (_resource "null_recource" "deploy"_).
 
-* Test with URL _http://VM-app-ip:9292_
+* Test with URL _<http://VM-app-ip:9292>_
+
+---
+
+## Lab_010 Ansible-1
+
+1. Create a configuration to run simple playbook.
+2. Analize running playbook:
+    _Playbook outputs changes made while running (in Yelloy:)._
+3. *Try to make dynamical inventory.
+
+---
+
+## Lab_011 Ansible-2
+
+1. Create playbooks, handlers and templates.
+2. Switch Packer images from shell provisioner to Ansible playbooks.
+
+Playbook variants:
+
+* One playbok - One play.
+* One playbok - Few plays.
+* A few playbooks
+
+Add __*.retry__ to __.gitignore__
+
+Get known with
+
+```text
+--check
+--limit
+--tags
+
+- import_playbook:
+```
+
+### Packer new images
+
+```json
+"provisioners": [
+    {
+    "type": "ansible",
+    "playbook_file": "ansible/packer_app.yml"
+    }
+]
+```
+
+```bash
+packer build -var-file packer/variables.json packer/app.json
+packer build -var-file packer/variables.json packer/db.json
+
+terraform apply
+
+ansible-playbook site.yml --limit app
+```
+
+Check with URL _<http://VM-app-ip:9292>_
 
 ---
 ## Lab_010 Ansible-1

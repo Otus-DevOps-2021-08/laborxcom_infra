@@ -18,5 +18,5 @@ variable "db_url" {
 variable "deploy" {
   description = "Switch for deploing App"
   type        = bool
-  default     = true
+  default     = false
 }
