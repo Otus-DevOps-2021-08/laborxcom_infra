@@ -13,7 +13,7 @@ resource "yandex_compute_instance" "app" {
   }
   resources {
     cores  = 2
-    memory = 2
+    memory = 1
   }
 
   boot_disk {
@@ -52,7 +52,8 @@ resource "null_resource" "deploy" {
     content = templatefile(
       "${path.module}/files/puma.service",
       {
-        db_url = var.db_url
+        puma_port = var.puma_port
+        db_url    = var.db_url
       }
     )
     destination = "/tmp/puma.service"

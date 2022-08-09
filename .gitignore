@@ -2,6 +2,8 @@ variables.json
 *.swp
 *.retry
 
+jdauphant.nginx
+
 # Local .terraform directories
 **/.terraform/*
 

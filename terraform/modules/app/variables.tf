@@ -11,7 +11,9 @@ variable "private_key_path" {
 variable subnet_id {
   description = "Subnets for modules"
 }
-
+variable "puma_port" {
+  default = 9292
+}
 variable "db_url" {
   description = "Database instance ip-address or URL"
 }
