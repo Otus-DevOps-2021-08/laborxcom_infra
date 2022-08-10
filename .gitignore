@@ -21,6 +21,9 @@ crash.log
 #
 *.tfvars
 
+# Sensitive data to access S3 backet. No variables available.
+backend.tf
+
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf

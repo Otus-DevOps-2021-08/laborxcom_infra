@@ -2,10 +2,10 @@ variable "service_account_key_file" {
   description = "Path to the key file"
 }
 variable "cloud_id" {
-  description = "Cloud"
+  description = "Cloud in YC"
 }
 variable "folder_id" {
-  description = "Folder"
+  description = "Folder in YC cloud"
 }
 variable "zone" {
   description = "Zone"
@@ -30,6 +30,8 @@ variable "public_key_path" {
 }
 variable "private_key_path" {
   description = "appuser user private key path"
+  # Terraform 0.14 has added the ability to mark variables as sensitive, which helps keep them out of your logs, so you should add sensitive = true
+  # sensitive = true
 }
 #From https://learn.hashicorp.com/tutorials/terraform/variables?in=terraform/configuration-language&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS
 variable "instance_count" {
