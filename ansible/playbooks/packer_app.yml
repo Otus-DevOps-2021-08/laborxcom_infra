@@ -5,6 +5,13 @@
   #gather_facts: false
   become: true
   tasks:
+  # - name: Wait for automatic system updates
+  #   become: yes
+  #   wait_for: path=/var/lib/dpkg/lock state=absent
+  - name: Pause for 1 minutes to build app cache
+    ansible.builtin.pause:
+      minutes: 1
+
   - name: Install ruby
     apt: "name={{ item }} state=present"
     with_items:
@@ -20,4 +27,7 @@
     #  update_cache: true
 
 # packer build -var-file packer/variables.json packer/app.json
-#--> yandex: A disk image was created: reddit-app-base-1641823388 (id: fd8m1u85785it7lm4dp9) with family name reddit-app-base
+# --> yandex: A disk image was created: reddit-app-base-1641823388 (id: fd8m1u85785it7lm4dp9) with family name reddit-app-base
+
+# ==> Builds finished. The artifacts of successful builds are:
+# --> yandex: A disk image was created: reddit-app-base-1660056042 (id: fd83jv9al57f921oq9j8) with family name reddit-app-base

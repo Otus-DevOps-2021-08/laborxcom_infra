@@ -37,3 +37,6 @@
 
 #packer build -var-file packer/variables.json packer/db.json
 #--> yandex: A disk image was created: reddit-db-base-1641824201 (id: fd8fhaspfpa1j63sembf) with family name reddit-db-base
+#
+#==> Builds finished. The artifacts of successful builds are:
+#--> yandex: A disk image was created: reddit-db-base-1660048318 (id: fd802frq0rpukj2k6ae1) with family name reddit-db-base
