@@ -229,7 +229,7 @@ ansible-playbook site.yml --limit app
 Check with URL _<http://VM-app-ip:9292>_
 
 ---
-## Lab_010 Ansible-1
+## Lab_012 Ansible-3
 
 1. Create configuration to run simple playbook.
 2. Analize running playbook:
