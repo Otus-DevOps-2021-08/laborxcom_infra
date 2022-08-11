@@ -1,6 +1,7 @@
 ---
 - name: Install MongoDB
-  hosts: all
+  # hosts: all
+  hosts: db
   become: true
   tasks:
   - name: Add APT key   # Добавим ключ репозитория для последующей работы с ним
