@@ -264,7 +264,7 @@ ansible-playbook site.yml
 
 Monolith Reddit at <http://VM-app-ip:9292> should appier
 
-### 2. Describe environments.
+### 2. Describe environments
 
 Create ***stage*** and ***prod*** in ***ansible/environments/***
 
@@ -300,12 +300,12 @@ Move playbooks to **ansible/playbooks**
 Check the results:
 
 ```bash
-$ terraform destroy
-$ terraform apply
-$ ansible-playbook -i environments/stage/inventory playbooks/site.yml
+terraform destroy
+terraform apply
+ansible-playbook -i environments/stage/inventory playbooks/site.yml
 ```
 
-### 3. Use community role - *nginx*.
+### 3. Use community role - *nginx*
 
 Set requirements in envs: ***environments/stage/requirements.yml***
 
@@ -333,6 +333,7 @@ nginx_sites:
             proxy_pass http://127.0.0.1:порт_приложения;
           }
 ```
+
 Open port 80 at terraform config and add role call to **app.yml**
 
 ### 4. Use Ansible Vault for Users environment
