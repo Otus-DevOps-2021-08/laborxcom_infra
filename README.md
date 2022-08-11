@@ -160,17 +160,17 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 ## Lab_009 Terraform-2 (Modules and remote .state)
 
 1. Divide App and DB to separate VMs with packer.
-2. Create modules for **App**, **DB**  and **VPC** in dir _modules_.
+2. Create modules for **App**, **DB**  and **VPC** in dir *modules*.
 3. Modify outputs to use **app** and **db** module instances.
-4. Run _terraform get_ to apply modules. Check with _tree .terraform_.
+4. Run *terraform get* to apply modules. Check with *tree .terraform*.
 5. Create **Stage** and **Prod** infras to use the same modules (DRY forever).
-6. Correct path to modules. Format configs with _terraform fmt_.
+6. Correct path to modules. Format configs with *terraform fmt*.
 7. Get to know [Terraform registry](https://registry.terraform.io/).
 8. \* Configure **remote backend** to store state file. Check remote sharing of sate.
 9. \** Add provisioner to module **app** (templatefile to provide db-ip).
-10. \** Configure parameters to switch provisioner using (_resource "null_recource" "deploy"_).
+10. \**Configure parameters to switch provisioner using (*resource "null_recource" "deploy"*).
 
-* Test with URL _<http://VM-app-ip:9292>_
+* Test with URL <http://VM-app-ip:9292>
 
 ---
 
@@ -178,7 +178,7 @@ To check the result go to <http://VM-ip:9292> the Monolith reddit app will appea
 
 1. Create a configuration to run simple playbook.
 2. Analize running playbook:
-    _Playbook outputs changes made while running (in Yelloy:)._
+    *Playbook outputs changes made while running (in Yelloy:).*
 3. *Try to make dynamical inventory.
 
 ---
@@ -194,7 +194,7 @@ Playbook variants:
 * One playbok - Few plays.
 * A few playbooks
 
-Add __*.retry__ to __.gitignore__
+Add ***.retry** to **.gitignore**
 
 Get known with
 
@@ -226,14 +226,175 @@ terraform apply
 ansible-playbook site.yml --limit app
 ```
 
-Check with URL _<http://VM-app-ip:9292>_
+Check with URL <http://VM-app-ip:9292>
 
 ---
+
 ## Lab_012 Ansible-3
 
-1. Create configuration to run simple playbook.
-2. Analize running playbook:
-    _Playbook outputs changes made while running (in Yelloy:)._
-3. *Try to make dinamical inventory.
+### Plan
+
+1. Move playbooks to different roles
+2. Describe two environments
+3. Use community role - *nginx*
+4. Use Ansible Vault for Users environment
+
+### Lab
+
+### 1. Create roles
+
+Create catalogs ***app*** and ***db*** with **ansible-galaxy init** in ***ansible/roles***
+
+Move **tasks** from playbooks to roles/*/tasks/main.yml
+
+Move **templates** and **files** to roles/*/templates/ and /files
+
+Define **handlers** in roles/*/handlers/main.yml
+
+Define **variables** in roles/*/defaults/main.yml
+
+Change **tasks** to call **roles** in playbooks
+
+Check workability with:
+
+```bash
+terraform apply
+ansible-playbook site.yml
+```
+
+Monolith Reddit at <http://VM-app-ip:9292> should appier
+
+### 2. Describe environments.
+
+Create ***stage*** and ***prod*** in ***ansible/environments/***
+
+Move inventory from ansible/ to the directories
+
+To use necessary inventory set it with **-i**
+
+```bash
+ansible-playbook -i environments/prod/inventory deploy.yml
+```
+
+Default inventory is defined in **ansible/ansible.cfg**
+
+```txt
+inventory = ./environments/stage/inventory
+```
+
+Use **environments/prod/group_vars** to set groups. Filenames are the same as group names at inventory files.
+
+Set also ***env: stage*** for all in **ansible/environments/stage/group_vars/all**
+
+Set ***env: local*** in roles/*/defaults/main.yml. Use ***debug*** in tasks to output working environment:
+
+```yml
+# tasks file for app
+- name: Show info about the env this host belongs to
+  debug:
+    msg: "This host is in {{ env }} environment!!!"
+```
+
+Move playbooks to **ansible/playbooks**
+
+Check the results:
+
+```bash
+$ terraform destroy
+$ terraform apply
+$ ansible-playbook -i environments/stage/inventory playbooks/site.yml
+```
+
+### 3. Use community role - *nginx*.
+
+Set requirements in envs: ***environments/stage/requirements.yml***
+
+```yml
+- src: jdauphant.nginx
+  version: v2.21.1
+```
+
+And install community role:
+
+```bash
+ansible-galaxy install -r environments/stage/requirements.yml
+```
+
+Do not commit community roles to repositories, so add ***jdauphant.nginx*** to **.gitignore**
+
+Add variables to */group_vars/app to set proxy for stage and prod:
+
+```txt
+nginx_sites:
+    default:
+        - listen 80
+        - server_name "reddit"
+        - location / {
+            proxy_pass http://127.0.0.1:порт_приложения;
+          }
+```
+Open port 80 at terraform config and add role call to **app.yml**
+
+### 4. Use Ansible Vault for Users environment
+
+Create a value.key file with a string as the password to encrypt/decrypt secrets.
+
+Set vault.key path to ansible.cfg
+
+```txt
+[defaults]
+...
+vault_password_file = path/vault.key
+```
+
+It's better to store the key outside of git - at ***~/.ansible/vault.key*** for instance. And add *vault.key* to **.gitignore**
+
+Create ***ansible/playbooks/users.yml*** creating users:
+
+```yml
+---
+- name: Create users
+  hosts: all
+  become: true
+
+  vars_files:
+    - "{{ inventory_dir }}/credentials.yml"
+
+  tasks:
+    - name: create users
+      user:
+        name: "{{ item.key }}"
+        password: "{{ item.value.password|password_hash('sha512', 65534|random(seed=inventory_hostname)|string) }}"
+        groups: "{{ item.value.groups | default(omit) }}"
+      with_dict: "{{ credentials.users }}"
+```
+
+Set credentials at ***ansible/environments/prod/credentials.yml*** like:
+
+```yml
+credentials:
+    users:
+        admin:
+            password: yyyzzzxxx
+            groups: sudo
+        qauser:
+            password: xxxyyyzzz
+```
+
+Then encrypt sensitive files:
+
+```bash
+ansible-vault encrypt environments/prod/credentials.yml
+ansible-vault encrypt environments/stage/credentials.yml
+```
+
+And check that the files are encrypted
+
+Use **edit** and **decrypt**
+
+```bash
+ansible-vault edit <file>
+ansible-vault decrypt <file>
+```
 
 ---
