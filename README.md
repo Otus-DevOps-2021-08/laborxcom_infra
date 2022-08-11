@@ -262,7 +262,7 @@ terraform apply
 ansible-playbook site.yml
 ```
 
-Monolith Reddit at <http://VM-app-ip:9292> should appier
+Monolith Reddit at <http://VM-app-ip:9292> should appear
 
 ### 2. Describe environments
 
